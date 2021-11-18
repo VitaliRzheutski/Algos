@@ -1,4 +1,5 @@
 // Optimized BubbleSort with noSwaps
+//time O(n^2) space O(1)
 function bubbleSort(arr){
     var noSwaps;
     for(var i = arr.length; i > 0; i--){
