@@ -29,6 +29,25 @@ class SinglyLinkedList{
         this.length++;
         return this //return the whole list
     }
+    pop(){
+        if(!this.head) return undefined;
+        let current = this.head;
+        let newTail = current;
+        //loop through the list
+        while(current.next){
+            newTail = current;
+            current = current.next
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+        //if there is 0,set null
+        if(this.length === 0){
+            this.head = null;
+            this.tail = null
+        }
+        return current;
+    }
 }
 
 var list = new SinglyLinkedList()
@@ -37,6 +56,8 @@ var list = new SinglyLinkedList()
 
 list.push('Hi')
 list.push('YOU')
-list.push(99);
+// list.push(99);
 list.push('vital')
 console.log('list:',list)
+list.pop();
+console.log('NewList:',list)
