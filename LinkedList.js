@@ -15,17 +15,28 @@ class SinglyLinkedList{
         this.length = 0;
     }
     push(val){
-        
+        //create a new node
+        let newNode = new Node(val);
+        //if there is no head propetry on the list,
+        //set the head and tail to be the newly created node
+        if(!this.head){
+            this.head = newNode;
+            this.tail = this.head;
+        }else{
+            this.tail.next = newNode;
+            this.tail = newNode;
+        }
+        this.length++;
+        return this //return the whole list
     }
 }
 
-// var first = new Node("Hi")
-// first.next = new Node("there")
-// first.next.next = new Node("how")
-// first.next.next.next = new Node("are")
-// first.next.next.next.next = new Node("you")
-
 var list = new SinglyLinkedList()
-list.push("HELLO")
-list.push("GOODBYE")
+// list.push("HELLO")
+// list.push("GOODBYE")
 
+list.push('Hi')
+list.push('YOU')
+list.push(99);
+list.push('vital')
+console.log('list:',list)
