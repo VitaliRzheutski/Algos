@@ -59,6 +59,18 @@ class SinglyLinkedList{
         return currentHead
 
     }
+    unshift(val){
+        let newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = this.head;
+        }else{
+            newNode.next = this.head; //node's next to be the current head property
+            this.head = newNode;//set head to be that newly created node
+        }
+        this.length++;
+        return this;
+    }
 }
 
 var list = new SinglyLinkedList()
