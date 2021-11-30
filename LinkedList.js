@@ -1,6 +1,5 @@
 // piece of data - val
 //reference to next node - next
-
 class Node{
     constructor(val){
         this.val = val;
@@ -41,7 +40,7 @@ class SinglyLinkedList{
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
-        //if there is 0,set null
+        //if there is 0, set null
         if(this.length === 0){
             this.head = null;
             this.tail = null
@@ -88,6 +87,19 @@ class SinglyLinkedList{
             return true;
         }
         return false;
+    }
+    insert(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === this.length) return !!this.push(val);
+        if(index === 0) return !!this.unshift(val);
+        
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var temp = prev.next;
+        prev.next = newNode;
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
 }
 
