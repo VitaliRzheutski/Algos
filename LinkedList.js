@@ -23,7 +23,9 @@ class SinglyLinkedList{
             this.head = newNode;
             this.tail = this.head;
         }else{
+            //otherwise set next property on the tail to be the newNode
             this.tail.next = newNode; 
+            //set the tail to be the newly created node
             this.tail = newNode; //new node will be the tail
         }
         this.length++; //udate the length
