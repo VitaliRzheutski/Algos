@@ -40,5 +40,19 @@ class DoublyLinkedList {
         this.length--;
         return poppedNode;
     }
+    shift(){
+        if(this.length === 0) return undefined;
+        var oldHead = this.head; //store the current head in  a variable
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        }else{
+            this.head = oldHead.next;//update the head to be the next of the old head
+            this.head.prev = null;//set the head's prev property to null
+            oldHead.next = null;//set the old head's next to null
+        }
+        this.length--;
+        return oldHead;
+    }
 }
         
