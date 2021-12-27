@@ -26,5 +26,19 @@ class DoublyLinkedList {
         this.length++;
         return this; //return Doubly Linked List
     }
+    pop(){
+        if(!this.head) return undefined; //if there is no head
+        var poppedNode = this.tail; //store the current tail in a variable to return later
+        if(this.length === 1){
+            this.head = null; //set head and tail to null
+            this.tail = null;
+        } else {
+            this.tail = poppedNode.prev; //update the tail to be previous Node
+            this.tail.next = null; //set the newTAil's next to null
+            poppedNode.prev = null;
+        }
+        this.length--;
+        return poppedNode;
+    }
 }
         
