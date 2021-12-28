@@ -67,5 +67,29 @@ class DoublyLinkedList {
         this.length++;
         return this;
     }
+    get(index){
+        if(index < 0 || index >= this.length) return null;
+        var count, current;
+        //if the index is less than or equal to hals the length of the list
+        //loop through the list starting from the head and loop towards the middle
+        if(index <= this.length/2){
+            count = 0;
+            current = this.head;
+            while(count !== index){
+                current = current.next;
+                count++;
+            }
+            //if the index is greater then half the length of the list
+            //oop through the list starting from the tail and loop towards the middle
+        } else {
+            count = this.length - 1;
+            current = this.tail;
+            while(count !== index){
+                current = current.prev;
+                count--;
+            }
+        }
+        return current;
+    }
 }
         
