@@ -81,6 +81,18 @@ class BinarySearchTree {
         }
         return data; //return the variable that stores a value
     }
+    DFSPreOrder(){
+        var data = [];//create a var for store the values of nodes visited
+        function traverse(node){
+            data.push(node.value); //store the root node
+            //if the node has a left property,call the helper funnc with the left property onn the node
+            if(node.left) traverse(node.left); 
+            //same to the right
+            if(node.right) traverse(node.right);
+        }
+        traverse(this.root); //invoke the helper func with the current variable
+        return data;
+    }
 }
 
 
