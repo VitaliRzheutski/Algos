@@ -66,6 +66,21 @@ class BinarySearchTree {
         }
         return false;
     }
+
+    BFS(){
+        var node = this.root,
+            data = [], //visited
+            queue = []; //queue
+        queue.push(node); //place the root nonde in the queue
+
+        while(queue.length){  //loop as long as there is anything in the queu
+           node = queue.shift();//shift(delete the first el) a node from the queue
+           data.push(node.value);//push this node to the visited variable
+           if(node.left) queue.push(node.left); //if there is a left property on the node  dequeued - add it to the queue
+           if(node.right) queue.push(node.right);//if there is a right property on the node  dequeued - add it to the queue
+        }
+        return data; //return the variable that stores a value
+    }
 }
 
 
