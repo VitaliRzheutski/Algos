@@ -21,6 +21,23 @@ class HashTable {
       //we just push key and value a new array in to the parrent array of that index
       this.keyMap[index].push([key, value]);
     }
+
+    get(key){
+        let index = this._hash(key);//will get index our key
+        //do we have something at this index?
+        if(this.keyMap[index]){ 
+            //if we have for example a few arrays at one index we need to loop over
+          for(let i = 0; i < this.keyMap[index].length; i++){
+              //trying to fined correct key
+            if(this.keyMap[index][i][0] === key) {  
+            //when we found correct key,we want to return value nnot a whole subArray
+              return this.keyMap[index][i][1]
+            }
+          }
+        }
+        //if we didn't fined return undefined
+        return undefined;
+      }
  
   }
   
