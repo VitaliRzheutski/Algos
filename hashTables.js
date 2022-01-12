@@ -38,6 +38,40 @@ class HashTable {
         //if we didn't fined return undefined
         return undefined;
       }
+
+      keys(){
+        let keysArr = [];
+        //loop through keyMap
+        for(let i = 0; i < this.keyMap.length; i++){ 
+            // if there is annything there
+          if(this.keyMap[i]){
+            for(let j = 0; j < this.keyMap[i].length; j++){
+              if(!keysArr.includes(this.keyMap[i][j][0])){
+                keysArr.push(this.keyMap[i][j][0])
+              }
+            }
+          }
+        }
+        return keysArr;
+      }
+      values(){
+        let valuesArr = [];
+        //loop through keyMap
+        for(let i = 0; i < this.keyMap.length; i++){
+            // if there is annything there
+          if(this.keyMap[i]){
+              //this.keyMap[i] - each subArray
+            for(let j = 0; j < this.keyMap[i].length; j++){
+                //if its no inncluded value(we donn't need duplicated values)
+              if(!valuesArr.includes(this.keyMap[i][j][1])){
+                  //push only values(this.keyMap[i][j][1])
+                valuesArr.push(this.keyMap[i][j][1]) 
+              }
+            }
+          }
+        }
+        return valuesArr;
+      }
  
   }
   
