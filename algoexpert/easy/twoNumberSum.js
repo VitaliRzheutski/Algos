@@ -1,5 +1,5 @@
 //time O(n log(n))
-//space O(1)
+//space O(1) we are not se additional space
 function twoNumberSum(array, targetSum) {
 	array.sort((a,b)=>a-b)//we got sorted array
 	let p1 = 0; //first index
@@ -17,8 +17,8 @@ function twoNumberSum(array, targetSum) {
 	}
 	return []
 }
-//time O(n^2)
-//space O(1)
+//time O(n^2);because of double for loop
+//space O(1);we are not se additional space
 function twoNumberSum(array, targetSum) {
 	// Write your code here.
 	  for(let i=0;i<array.length;i++){
@@ -30,8 +30,8 @@ function twoNumberSum(array, targetSum) {
   }
 
 // Better solution(faster)
-  //time O(n);
-  // space O(n)
+  //time O(n); n-represents length of array (traverse + calculation + accec)
+  //space O(n); because we are adding values to hash-table
   function twoNumberSum(array, targetSum) {
 
 	let hash = {}; //use to store preveiosly seen elements
