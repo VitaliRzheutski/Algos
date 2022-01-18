@@ -17,4 +17,33 @@ function twoNumberSum(array, targetSum) {
 	}
 	return []
 }
-	
+//time O(n^2)
+//space O(1)
+function twoNumberSum(array, targetSum) {
+	// Write your code here.
+	  for(let i=0;i<array.length;i++){
+		  for(let j=i+1;j<array.length;j++){
+			  if(array[i]+array[j]===targetSum) return [array[i],array[j]]
+		  }
+	  }
+	  return []
+  }
+
+// Better solution(faster)
+  //time O(n);
+  // space O(n)
+  function twoNumberSum(array, targetSum) {
+
+	let hash = {}; //use to store preveiosly seen elements
+		for(let i=0;i<array.length;i++){
+			let diff = targetSum-array[i]; // x+y=z
+			if(diff in hash){
+				 return [diff,array[i]];
+			}
+			else{
+				hash[array[i]] = true;
+			}
+		}
+		return []
+	}
+  
