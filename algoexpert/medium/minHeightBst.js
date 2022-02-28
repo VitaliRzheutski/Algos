@@ -43,3 +43,22 @@ class BST {
     }
   }
 }
+
+// Time O(N);
+// Space O(N)
+function minHeightBst(array) {
+  // Write your code here.
+  return constructTree(array, 0, array.length - 1);
+}
+//goal is to minimize Both sides of the tree so that BST has a minHeight(make it as balanced as it could be)
+//try to make nodes in the left side be almost the same amount as in right side
+function constructTree(array, leftIdx, rightIdx) {
+  if (rightIdx < leftIdx) return null;
+
+  let middle = Math.floor((leftIdx + rightIdx) / 2);
+  let root = new BST(array[middle]); //we chose el in the middle because it has the same amount of values
+  // 	to its left and to its right(because the input array is sorted)
+  root.left = constructTree(array, leftIdx, middle - 1); //continue building root's left tree appluying the same logic
+  root.right = constructTree(array, middle + 1, rightIdx); //building root's right subtree..
+  return root;
+}
