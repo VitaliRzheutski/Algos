@@ -18,3 +18,4 @@ function findThreeLargestNumbers(array) {
 }
 
 console.log(findThreeLargestNumbers([45, 3, 5, 345, -24, -56, 7, 6, 6, 5]));
+
